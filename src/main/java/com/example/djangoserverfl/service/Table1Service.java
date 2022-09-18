@@ -17,21 +17,21 @@ public class Table1Service {
         var data = table1Repository.findById(1L);
         var returnValue = new Table1Model();
         if(data.isPresent())
-            returnValue.setData1(data.get().getData1());
+            returnValue.setData2(data.get().getData1());
         else
-            returnValue.setData1("no data");
+            returnValue.setData2("no data");
         return returnValue;
     }
 
     public Status insertData(Table1Model table1Model){
         var result = new Status();
-        if(table1Model.getData1()!=null)
-            if(!table1Model.getData1().isEmpty())
-                if(table1Model.getData1().isBlank())
+        if(table1Model.getData2()!=null)
+            if(!table1Model.getData2().isEmpty())
+                if(table1Model.getData2().isBlank())
                     result.setStatus("blank input");
                 else {
                     var table = table1Repository.findById(1L).get();
-                    table.setData1(table1Model.getData1());
+                    table.setData2(table1Model.getData2());
                     table1Repository.save(table);
                     result.setStatus("OK");
                 }
