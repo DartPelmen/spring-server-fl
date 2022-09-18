@@ -17,7 +17,7 @@ public class Table1Service {
         var data = table1Repository.findById(1L);
         var returnValue = new Table1Model();
         if(data.isPresent())
-            returnValue.setData2(data.get().getData1());
+            returnValue.setData2(data.get().getData2());
         else
             returnValue.setData2("no data");
         return returnValue;
